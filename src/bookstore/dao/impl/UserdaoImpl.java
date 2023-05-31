@@ -103,4 +103,11 @@ public class UserdaoImpl extends BaseDao implements Userdao {
         }
         return salt;
     }
+
+    @Override
+    public void updateUser(String username,String newPassword, String email, String url) {
+        Connection conn = SetConn.Conn();
+        String sql = "update t_user set password=?,email=?,url=? where username=?";
+        int i = updateAll(conn, sql, newPassword, email, url, username);
+    }
 }

@@ -33,4 +33,6 @@ public interface Userservice {
     取盐
      */
     Salt getSalt(String username);
+
+    void updateUser(String username ,String password, String email, String url);
 }

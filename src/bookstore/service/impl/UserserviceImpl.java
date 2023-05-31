@@ -6,6 +6,7 @@ import bookstore.bean.Userbean;
 import bookstore.dao.Userdao;
 import bookstore.dao.impl.UserdaoImpl;
 import bookstore.service.Userservice;
+import bookstore.utils.MD5Utils;
 
 public class UserserviceImpl implements Userservice {
 
@@ -41,5 +42,13 @@ public class UserserviceImpl implements Userservice {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void updateUser(String username,String password, String email, String url) {
+        Salt salat = userdao.getSalat(username);
+        String s =password+salat.getSalt();
+        String newPassword = MD5Utils.md5(s);
+        userdao.updateUser(username,newPassword,email,url);
     }
 }

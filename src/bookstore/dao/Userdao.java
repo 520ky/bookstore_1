@@ -23,4 +23,6 @@ public interface Userdao {
     void saveSalt(Salt salt);
 
     Salt getSalat(String username);
+
+    void updateUser( String username,String newPassword, String email, String url);
 }

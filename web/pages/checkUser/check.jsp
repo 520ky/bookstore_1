@@ -65,7 +65,7 @@
 
             })
             // 给注册绑定单击事件
-            $("#sub_btn").click(function () {
+            $("#checkUser").click(function () {
                 // 验证密码：必须由字母，数字下划线组成，并且长度为5到12位
                 //1 获取用户名输入框里的内容
                 var passwordText = $("#password").val();
@@ -105,33 +105,28 @@
 <body>
 
 <div class="login_banner">
-    <div id="content">
+    <div id="content" style="margin-top: 120px">
         <div class="login_form" style="margin-right: 400px">
             <div class="login_box">
                 <div class="tit">
                     <h1>修改用户信息</h1>
                     <span class="errorMsg">
-<%--									用EL表达式表示--%>
-									${requestScope.msg}
 								</span>
                 </div>
                 <div class="form">
                     <form action="updateUser" method="post">
-<%--                        <input type="hidden" name="action" value="regist"/>--%>
+                        <input type="hidden" name="id" value="${sessionScope.user.id}">
+                        <input type="hidden" name="username" value="${sessionScope.user.username}">
                         <br />
                         <label>用户密码：</label>
                         <input class="itxt" type="password" placeholder="请输入密码"
                                autocomplete="off" tabindex="1" name="password" id="password"
-                               value="${requestScope.password}"
-                        <%--											value="<%=request.getAttribute("password")==null?"":request.getAttribute("password")%>"--%>
                         />
                         <br />
                         <br />
                         <label>确认密码：</label>
                         <input class="itxt" type="password" placeholder="确认密码"
                                autocomplete="off" tabindex="1" name="repwd" id="repwd"
-                               value="${requestScope.password}"
-                        <%--										   value="<%=request.getAttribute("password")==null?"":request.getAttribute("password")%>"--%>
                         />
                         <br />
                         <br />
