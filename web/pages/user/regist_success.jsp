@@ -50,7 +50,7 @@
     </span>
 		<div class="dropdown-content" style="width: 75px;height: 130px;margin-left: 200px">
 			<a href="login_RegistServlet?action=logoff">注销</a>
-			<a href="#">修改</a>
+			<a href="pages/checkUser/check.jsp">修改</a>
 			<a href="#">退出</a>
 		</div>
 
