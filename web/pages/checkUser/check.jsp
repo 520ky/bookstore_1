@@ -11,6 +11,18 @@
     <script type="text/javascript">
         // 页面加载完成之后
         $(function () {
+            //取消返回到index.jsp页面
+            $("#cancel").click(function(){
+                document.location.href="${pageScope.basePath}index.jsp"
+            })
+
+            $("#checkUser").click(function(){
+                let flag = confirm("确定要修改密码吗?");
+                if (!flag){
+                    //确定修改
+                    return false;
+                }
+            })
             //绑定头像
             $("#headImg").click(function(){
                 $("#imgFile").click();
@@ -91,9 +103,6 @@
     </style>
 </head>
 <body>
-<%--<div id="login_header">--%>
-<%--    <img class="logo_img" alt="" src="static/img/logo.gif" >--%>
-<%--</div>--%>
 
 <div class="login_banner">
     <div id="content">
@@ -107,10 +116,10 @@
 								</span>
                 </div>
                 <div class="form">
-                    <form action="#" method="post">
-                        <input type="hidden" name="action" value="regist"/>
+                    <form action="updateUser" method="post">
+<%--                        <input type="hidden" name="action" value="regist"/>--%>
                         <br />
-                        <label>用户新密码：</label>
+                        <label>用户密码：</label>
                         <input class="itxt" type="password" placeholder="请输入密码"
                                autocomplete="off" tabindex="1" name="password" id="password"
                                value="${requestScope.password}"
@@ -128,24 +137,30 @@
                         <br />
                         <label>电子邮件：</label>
                         <input class="itxt" type="text" placeholder="请输入邮箱地址"
-                               value="${requestScope.email}"
+                               value="${sessionScope.user.email}"
                                autocomplete="off" tabindex="1" name="email" id="email" />
                         <br />
 
                         <div style="width: 360px;height: 80px;">
                             <label style="padding-top: 32px;float: left ">头像：</label>
                             <div style="width: 80px;height: 80px;float:left; margin-left: 34px;margin-top: 10px">
-                                <img id="headImg"  style="width: 100%;height: 100%" src="https://tails-image.oss-cn-hangzhou.aliyuncs.com/images/header.webp" alt="选择头像">
+                                <img id="headImg"  style="width: 100%;height: 100%" src="${sessionScope.user.url}" alt="选择头像">
                             </div>
                             <input id="imgUrl" type="hidden" name="url" value="https://tails-image.oss-cn-hangzhou.aliyuncs.com/images/header.webp"/>
                         </div>
                         <br />
-                        <button style="width: 135px;height: 33px;margin-right: 80px;margin-top: 30px;background: aqua">
-                            <a href="#" style="font-size: 20px;text-decoration-line: none">确定修改</a>
-                        </button>
-                        <button style="width: 135px;height: 33px;background: aqua">
-                            <a href="#" style="font-size: 20px;text-decoration-line: none">取消修改</a>
-                        </button>
+<%--                        <button style="width: 135px;height: 33px;margin-right: 80px;margin-top: 30px;background: aqua">--%>
+<%--                            <a id="checkUser" href="updateUser?action" style="font-size: 20px;text-decoration-line: none">确定修改</a>--%>
+<%--                        </button>--%>
+                        <input id="checkUser" style="width: 135px;height: 33px;margin-right: 80px;
+                        margin-top: 30px;background: aqua;font-size: 20px" type="submit" value="确定修改">
+
+                        <input id="cancel" type="button" style="width: 135px;height: 33px;
+                        margin-top: 30px;background: aqua;font-size: 20px;font-size: 20px;" value="取消修改" >
+<%--                        <button style="width: 135px;height: 33px;background: aqua;">--%>
+<%--                        --%>
+<%--                            <a href="index.jsp" style="font-size: 20px;text-decoration-line: none">取消修改</a>--%>
+<%--                        </button>--%>
                     </form >
 
                     <form id="forms" action="uploadHeaderServlet" enctype="multipart/form-data" method="post">

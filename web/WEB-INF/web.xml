@@ -69,6 +69,14 @@
         <url-pattern>/orderServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UpdateUser</servlet-name>
+        <servlet-class>bookstore.web.UpdateUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateUser</servlet-name>
+        <url-pattern>/updateUser</url-pattern>
+    </servlet-mapping>
 
 <!--    filter过滤器拦截manager-->
     <filter>
