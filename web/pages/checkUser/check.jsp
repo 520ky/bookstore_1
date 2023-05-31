@@ -143,8 +143,8 @@
                         <button style="width: 135px;height: 33px;margin-right: 80px;margin-top: 30px;background: aqua">
                             <a href="#" style="font-size: 20px;text-decoration-line: none">确定修改</a>
                         </button>
-                        <button style="width: 135px;height: 33px">
-                            <a href="#" style="font-size: 20px;text-decoration-line: none;background: aqua">取消修改</a>
+                        <button style="width: 135px;height: 33px;background: aqua">
+                            <a href="#" style="font-size: 20px;text-decoration-line: none">取消修改</a>
                         </button>
                     </form >
 
