@@ -14,6 +14,15 @@ public class Bookbean {
     public Bookbean() {
     }
 
+    public Bookbean(int id, String name, String author, BigDecimal price, int sales, int stock) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.price = price;
+        this.sales = sales;
+        this.stock = stock;
+    }
+
     public Bookbean(int id, String name, String author, BigDecimal price, int sales, int stock, String imgPath) {
         this.id = id;
         this.name = name;
