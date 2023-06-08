@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>图书管理</title>
+<title>商品管理</title>
 <%@ include file="/pages/common/head.jsp"%>
 
 <script type="text/javascript">
@@ -20,12 +20,10 @@
 <body>
 	
 	<div id="header">
-			<img class="logo_img" alt="" src="../../static/script/logo.gif" >
-			<span class="wel_word">图书管理系统</span>
 
 		<%@ include file="/pages/common/manager_mue.jsp"%>
 		<div class="addDi " style="margin-right: 10px">
-			<a href="pages/manager/book_edit.jsp?pageNo=${requestScope.page.pageTotal}">添加图书</a>
+			<a href="pages/manager/book_edit.jsp?pageNo=${requestScope.page.pageTotal}">添加商品</a>
 		</div>
 
 	</div>
@@ -34,8 +32,9 @@
 		<table>
 			<tr>
 				<td>名称</td>
+				<td>图片</td>
 				<td>价格</td>
-				<td>作者</td>
+				<td>描述</td>
 				<td>销量</td>
 				<td>库存</td>
 				<td colspan="2">操作</td>
@@ -43,6 +42,7 @@
 			<c:forEach items="${requestScope.page.items}" var="book">
 				<tr >
 					<td>${book.name}</td>
+					<td>${book.imgeUrl}</td>
 					<td>${book.price}</td>
 					<td>${book.author}</td>
 					<td>${book.sales}</td>
@@ -104,65 +104,6 @@
 			<a href="manager/bookServlet?action=apage&pageNo=${i}">${i}</a>
 		</c:if>
 	</c:forEach>
-
-
-<%--	<c:choose>
-&lt;%&ndash;		1、如果总页码小于等于5&ndash;%&gt;
-		<c:when test="${requestScope.page.pageTotal<=5}">
-&lt;%&ndash;			<c:set var="begin"&ndash;%&gt;
-			<c:forEach begin="1" end="${requestScope.page.pageTotal}" var="i">
-				<c:if test="${i==requestScope.page.pageNo}">
-					【${i}】
-				</c:if>
-				<c:if test="${i!=requestScope.page.pageNo}">
-					<a href="manager/bookServlet?action=apage&pageNo=${i}">${i}</a>
-				</c:if>
-
-			</c:forEach>
-		</c:when>
-&lt;%&ndash;		2、页码大于5&ndash;%&gt;
-		<c:when test="${requestScope.page.pageTotal>5}">
-&lt;%&ndash;			（1）、1，2,3,4,5，前三个为1，2,3&ndash;%&gt;
-			<c:if test="${requestScope.page.pageNo<=3}">
-				<c:forEach begin="1" end="5" var="i">
-					<c:if test="${i==requestScope.page.pageNo}">
-						【${i}】
-					</c:if>
-					<c:if test="${i!=requestScope.page.pageNo}">
-						<a href="manager/bookServlet?action=apage&pageNo=${i}">${i}</a>
-					</c:if>
-				</c:forEach>
-			</c:if>
-
-			&lt;%&ndash;		（3）、大于3，小于7是&ndash;%&gt;&ndash;%&gt;
-			<c:if test="${3<requestScope.page.pageNo && requestScope.page.pageNo<requestScope.page.pageTotal-2}">
-				<c:forEach begin="${requestScope.page.pageNo-2}" end="${requestScope.page.pageNo+2}" var="i">
-					<c:if test="${i==requestScope.page.pageNo}">
-						【${i}】
-					</c:if>
-					<c:if test="${i!=requestScope.page.pageNo}">
-						<a href="manager/bookServlet?action=apage&pageNo=${i}">${i}</a>
-					</c:if>
-				</c:forEach>
-			</c:if>
-
-
-&lt;%&ndash;			（2）、后三个为【7】，8,9,10&ndash;%&gt;
-			<c:if test="${requestScope.page.pageNo>=requestScope.page.pageTotal-2}">
-				<c:forEach begin="${requestScope.page.pageTotal-4}" end="${requestScope.page.pageTotal}" var="i">
-					<c:if test="${i==requestScope.page.pageNo}">
-						【${i}】
-					</c:if>
-					<c:if test="${i!=requestScope.page.pageNo}">
-						<a href="manager/bookServlet?action=apage&pageNo=${i}">${i}</a>
-					</c:if>
-				</c:forEach>
-			</c:if>
-
-
-
-		</c:when>
-	</c:choose>--%>
 
 
 <%--		尾页和下一页的处理--%>

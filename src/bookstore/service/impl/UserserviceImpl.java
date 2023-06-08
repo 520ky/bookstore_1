@@ -20,8 +20,10 @@ public class UserserviceImpl implements Userservice {
 
     @Override
     public Userbean loginUser(Userbean user) {
-        return   userdao.userlogin(user);
-          //如果为null则登录不成功，登录成功返回userbean
+
+            //如果为null则登录不成功，登录成功返回userbean
+            return   userdao.userlogin(user);
+
     }
 
     @Override

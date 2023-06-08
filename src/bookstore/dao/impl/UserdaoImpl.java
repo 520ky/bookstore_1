@@ -43,16 +43,28 @@ public class UserdaoImpl extends BaseDao implements Userdao {
         Userbean userbean = null;
         //连接数据库
         Connection conn = SetConn.Conn();
+        if ("user".equals(user.getUserAdmin())){
+            //SQL语句
+            String sql = "SELECT id,username ,PASSWORD ,email,url FROM t_user WHERE username=? AND PASSWORD = ?";
+            try {
+                userbean = selectAll(conn, user.getClass(), sql, user.getUsername(), user.getPassword());
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
 
-        //SQL语句
-        String sql = "SELECT id,username ,PASSWORD ,email,url FROM t_user WHERE username=? AND PASSWORD = ?";
-        try {
-            userbean = selectAll(conn, user.getClass(), sql, user.getUsername(), user.getPassword());
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            }
+        }else {
+            //SQL语句
+            String sql = "SELECT id,username ,password ,email,url FROM t_admin WHERE username=? AND password = ?";
+            try {
+                userbean = selectAll(conn, user.getClass(), sql, user.getUsername(), user.getPassword());
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
 
+            }
         }
+
         return userbean;
     }
 

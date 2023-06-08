@@ -1,5 +1,6 @@
 package bookstore.web;
 
+import bookstore.bean.AdminUser;
 import bookstore.bean.Bookbean;
 import bookstore.bean.Salt;
 import bookstore.bean.Userbean;
@@ -69,17 +70,27 @@ public class Login_RegistServlet extends BaseServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String userAdmin = request.getParameter("user");
-        Salt salt = userservice.getSalt(username);
-        String salt1 = salt.getSalt();
-        String password1 = MD5Utils.md5(password + salt1);
 
-        Userbean user = new Userbean(username,password1);
+        String password1 = null;
+        try {
+            Salt salt = userservice.getSalt(username);
+            String salt1 = salt.getSalt();
+            password1 = MD5Utils.md5(password + salt1);
+        } catch (Exception e) {
+            request.setAttribute("msg","用户名或密码错误");
+            request.setAttribute("username",username);
+            request.getRequestDispatcher("/pages/user/login.jsp").forward(request,response);
+            throw new RuntimeException(e);
+        }
 
         if (kaptcha!=null && kaptcha.equalsIgnoreCase(code)){
             //验证码正确
+            Userbean user = new Userbean(username,password1,userAdmin);
+
             Userbean userbean = userservice.loginUser(user);
+
             if (userbean!=null){
-                //注册成功
+                //登录成功
                 userbean.setUserAdmin(userAdmin);
                 request.getSession().setAttribute("user",userbean);
                 request.getRequestDispatcher("/pages/user/login_success.jsp").forward(request,response);

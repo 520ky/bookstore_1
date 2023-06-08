@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>编辑图书</title>
+<title>编辑商品</title>
 	<%@ include file="/pages/common/head.jsp"%>
 <style type="text/css">
 	h1 {
@@ -24,9 +24,6 @@
 <body>
 
 		<div id="header">
-			<img class="logo_img" alt="" src="/static/script/logo.gif" >
-			<span class="wel_word">编辑图书</span>
-
 			<%@ include file="/pages/common/manager_mue.jsp"%>
 
 		</div>
@@ -40,7 +37,7 @@
 					<tr>
 						<td>名称</td>
 						<td>价格</td>
-						<td>作者</td>
+						<td>描述</td>
 						<td>销量</td>
 						<td>库存</td>
 						<td colspan="2">操作</td>

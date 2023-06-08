@@ -16,13 +16,10 @@
 <body>
 	
 	<div id="header">
-			<img class="logo_img" alt="" src="../../static/script/logo.gif" >
-			<span class="wel_word">后台管理系统</span>
-
 		<%@ include file="/pages/common/manager_mue.jsp"%>
 
 	</div>
-	
+
 	<div id="main">
 		<h1>欢迎管理员进入后台管理系统</h1>
 	</div>

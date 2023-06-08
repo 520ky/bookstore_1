@@ -15,11 +15,7 @@ public class UserserviceImplTest {
         System.out.println(b);
     }
 
-    @Test
-    public void loginUser() {
-        Userbean userbean = userservice.loginUser(user);
-        System.out.println(userbean);
-    }
+
 
     @Test
     public void checkUser() {

@@ -63,8 +63,10 @@
 									<img alt="" id="imgChange" src="kaptcha.jpg" style="float: right; margin-right: 40px; width: 110px;height: 40px">
 									<br/>
 									<br/>
-										<label style="color: black;margin-left: 80px" for="user">普通用户:</label>
-									    <input  type="radio" checked="checked" value="user" name="user" id="user">
+										<label style="color: black;margin-left: 80px" for="user">普通用户:
+											<input  type="radio" checked="checked" value="user" name="user" id="user">
+										</label>
+
 									&nbsp;
 										<label style="color: black">管理员:<input type="radio" value="admin" name="user"></label>
 									<br/>

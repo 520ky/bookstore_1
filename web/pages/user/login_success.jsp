@@ -1,10 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>注册页面</title>
+<title>登录成功页面</title>
 	<!--写base标签，永远固定相对路径跳转的结果-->
 	<%@ include file="/pages/common/head.jsp"%>
 
@@ -53,7 +54,7 @@
 			<a href="orderServlet?action=queryOrder">我的订单</a>&nbsp;
 			<a href="index.jsp">返回</a>&nbsp;
 
-			<c:if test="${sessionScope.user.userAdmin == admin}">
+			<c:if test="${sessionScope.user.userAdmin == 'admin'}">
 				<a href="pages/manager/manager.jsp">后台管理</a>&nbsp;&nbsp;
 			</c:if>
 
@@ -61,6 +62,7 @@
 				 src="${sessionScope.user.url}"
 				 style="width: 30px;height: 30px;float: right;">
 		</c:if>
+
 
     </span>
 		<div class="dropdown-content" style="width: 75px;height: 130px;margin-left: 200px">

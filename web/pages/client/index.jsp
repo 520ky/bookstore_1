@@ -82,7 +82,7 @@
             <a href="orderServlet?action=queryOrder">我的订单</a>&nbsp;
             <a href="index.jsp">返回</a>&nbsp;
 
-            <c:if test="${sessionScope.user.userAdmin == admin}">
+            <c:if test="${sessionScope.user.userAdmin == 'admin'}">
                 <a href="pages/manager/manager.jsp">后台管理</a>&nbsp;&nbsp;
             </c:if>
 

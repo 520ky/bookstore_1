@@ -11,7 +11,6 @@
 	
 	<div id="header">
 <%--			<img class="logo_img" alt="" src="../../static/script/logo.gif" >--%>
-			<span class="wel_word">订单管理系统</span>
 
 		<%@ include file="/pages/common/manager_mue.jsp"%>
 

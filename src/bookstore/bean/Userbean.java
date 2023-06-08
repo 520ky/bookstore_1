@@ -7,58 +7,38 @@ public class Userbean {
     private String password;
     private String email;
     private String url;
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     private String userAdmin;
 
-
-    public String getUserAdmin() {
-        return userAdmin;
+    public Userbean() {
     }
-
-    public void setUserAdmin(String userAdmin) {
-        this.userAdmin = userAdmin;
-    }
-
 
     public Userbean(String username) {
         this.username = username;
     }
 
-    public Userbean() {
+    @Override
+    public String toString() {
+        return "Userbean{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", url='" + url + '\'' +
+                ", userAdmin='" + userAdmin + '\'' +
+                '}';
     }
 
-    public Userbean(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
-
-    public Userbean(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public Userbean(Integer id, String username, String password, String email) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
-
-    public Userbean(Integer id, String username, String password, String email, String url) {
-        this.id = id;
+    public Userbean(String username, String password, String email, String url) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.url = url;
+    }
+
+    public Userbean(String username, String password, String userAdmin) {
+        this.username = username;
+        this.password = password;
+        this.userAdmin = userAdmin;
     }
 
     public Integer getId() {
@@ -93,15 +73,28 @@ public class Userbean {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Userbean{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", url='" + url + '\'' +
-                ", userAdmin='" + userAdmin + '\'' +
-                '}';
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUserAdmin() {
+        return userAdmin;
+    }
+
+    public void setUserAdmin(String userAdmin) {
+        this.userAdmin = userAdmin;
+    }
+
+    public Userbean(Integer id, String username, String password, String email, String url, String userAdmin) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.url = url;
+        this.userAdmin = userAdmin;
     }
 }

@@ -18,4 +18,5 @@ class AliyunOSSTest {
         System.out.println(inputStream);
 //        new AliyunOSS().getAlyunOss(inputStream,name);
     }
+
 }
